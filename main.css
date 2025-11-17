@@ -1,9 +1,3 @@
-/*
- * Тема: Drain Glass (Дрейн/Стекломорфизм)
- * Фон: https://i.pinimg.com/736x/45/e2/ab/45e2ab52d01a964d60aed70b71315d5b.jpg
- * Эстетика: Drain/Cyberpunk с неоновыми акцентами
- */
-@import url(https://Roundstg.github.io/css/src/assets/pic/font.jpg);
 :root {
     /* Цветовая палитра Drain/Неон */
     --drain-bg: #100810;             /* Очень темный фон */
@@ -110,4 +104,5 @@ body, .app_a2b6c8, .bg__34149, .layers__1c917 {
 /* Цвет имени пользователя (для Drain-стилистики) */
 .username__0855c {
     color: var(--drain-accent-pink) !important;
+
 }
