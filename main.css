@@ -1,0 +1,113 @@
+/*
+ * Тема: Drain Glass (Дрейн/Стекломорфизм)
+ * Фон: https://i.pinimg.com/736x/45/e2/ab/45e2ab52d01a964d60aed70b71315d5b.jpg
+ * Эстетика: Drain/Cyberpunk с неоновыми акцентами
+ */
+@import url(https://Roundstg.github.io/css/src/assets/pic/font.jpg);
+:root {
+    /* Цветовая палитра Drain/Неон */
+    --drain-bg: #100810;             /* Очень темный фон */
+    --drain-accent-pink: #ff00ff;    /* Неоновый акцент (Маджента) */
+    --drain-accent-green: #00ff66;   /* Неоновый акцент (Лайм) */
+    --drain-text: #e0e0e0;           /* Основной текст */
+    --drain-blur-color: rgba(18, 12, 18, 0.8); /* Темная основа для стеклянного эффекта */
+    --glass-blur: 10px;              /* Интенсивность размытия */
+}
+
+/* ================== 1. Фон ================== */
+
+/* Применение фонового изображения ко всей оболочке Discord */
+body, .app_a2b6c8, .bg__34149, .layers__1c917 {
+    background: url("font.jpg") no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+/* Убедиться, что основной контейнер Discord прозрачен */
+#app-mount {
+    background: transparent !important;
+}
+
+/* ================== 2. Стеклянные Панели (Glassmorphism) ================== */
+
+/* Применение стекломорфизма к основным панелям (Каналы, ЛС, Пользователи, Чат) */
+.theme-dark {
+    /* Основные цвета заменяются на полупрозрачные, чтобы просвечивал фон */
+    --background-primary: var(--drain-blur-color);
+    --background-secondary: var(--drain-blur-color);
+    --background-secondary-alt: var(--drain-blur-color);
+    --background-tertiary: rgba(0, 0, 0, 0.4);
+
+    /* Применение эффекта стекла к основным элементам (панель каналов, список пользователей, чат) */
+    .base__3e6af, /* Основной макет приложения */
+    .container__014da, /* Панель каналов */
+    .sidebar__8a91a, /* Боковая панель (пользователи/ЛС) */
+    .chat__528d4, /* Контейнер чата */
+    .members__97fa1, /* Список пользователей */
+    .container_d0c9c2, /* Контейнер настроек */
+    .root_e10986 { /* Основной корень приложения */
+        background-color: var(--drain-blur-color) !important;
+        backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        margin: 5px; /* Небольшой отступ, чтобы элементы не сливались */
+    }
+
+    /* Убираем рамку и тень вокруг главного окна (опционально) */
+    .notches_e01292 {
+        box-shadow: none !important;
+    }
+}
+
+/* ================== 3. Стеклянные Сообщения ================== */
+
+/* Эффект стекломорфизма для отдельных сообщений */
+.message__06c64, .group-spacing-16 .container__64c63 {
+    background-color: rgba(255, 255, 255, 0.05) !important; /* Очень легкая прозрачная накладка */
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 5px 10px;
+    margin: 4px 0 !important;
+    transition: background-color 0.3s ease;
+}
+/* Эффект при наведении на сообщение */
+.message__06c64:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ================== 4. Drain Акценты ================== */
+
+/* Стиль для активного (выбранного) канала/ЛС */
+.containerDefault__6c605.selected__5d8a0, .containerDefault__6c605.selected__5d8a0:hover {
+    background-color: rgba(255, 0, 255, 0.2) !important; /* Неоновый розовый акцент */
+    border-left: 3px solid var(--drain-accent-pink) !important;
+    color: var(--drain-text) !important;
+}
+
+/* Стилизация полосы прокрутки в Drain-стиле (Неоново-зеленый) */
+.scrollerBase__0e550::-webkit-scrollbar-thumb,
+.scroller_c049d4::-webkit-scrollbar-thumb {
+    background-color: var(--drain-accent-green) !important;
+    border-radius: 10px !important;
+}
+.scrollerBase__0e550::-webkit-scrollbar-track,
+.scroller_c049d4::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Стилизация поля ввода сообщения (также со стеклянным эффектом) */
+.channelTextArea__8f6d5, .slateContainer__03893 {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.textArea_a43657 {
+    color: var(--drain-text) !important;
+}
+
+/* Цвет имени пользователя (для Drain-стилистики) */
+.username__0855c {
+    color: var(--drain-accent-pink) !important;
+}
